@@ -1,0 +1,16 @@
+{
+  "name": "redux-services",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/redux-services/src",
+  "projectType": "library",
+  "tags": ["redux-services"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/redux-services/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

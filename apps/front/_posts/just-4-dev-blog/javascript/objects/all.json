@@ -1,0 +1,31 @@
+[
+  {
+    "_id": "6208832d6e22fa6314bb0a1b",
+    "app": {
+      "_id": "61c76cbb69edb029e4799725",
+      "title": "Just 4 Dev Blog"
+    },
+    "category": {
+      "_id": "61de0edb3f5db40965a76b55",
+      "slug": "javascript"
+    },
+    "subcategory": {
+      "_id": "61de0f723f5db40965a76b70",
+      "slug": "objects"
+    },
+    "slug": "how-to-flatten-an-array-in-javascript",
+    "publisherLogo": "/assets/logo.jpg",
+    "publisherName": "just4.dev",
+    "body": "Welcome to JavaScript baazi a blog series where we go through common interview questions in JavaScript and understand everything around them.\n\nHmm... So what is the flattening of an array?\nbasically in flattening we reduce the dimension of an array.\nbasically, let's say if we have a 2d array while doing the flattening we will convert that 2d array into a 1d array.\nalso, there is one more thing the depth of flattening that basically means how much the array should be flattened basically ...\n\nlet's say you have a 2-d array then you will flatten it into 1-d then depth is 1. here you reduce the array size by 1.\n\nnow let's say you have a 4-d array then you flatten it into a 2-d array then the depth is 2.\nLifelong Learning Plan\nSo how to do flattening of an array?\nYou can use Array.prototype.flat()\nLifelong Learning Plan.",
+    "description": "Welcome to JavaScript baazi a blog series where we go through common interview questions in JavaScript and understand everything around them.\nHmm... So what is the flattening of an array? Lifelong Learning Plan",
+    "authorName": "just4.dev",
+    "dateModified": "2023-01-13T18:45:13.496Z",
+    "datePublished": "2023-01-13T18:45:13.496Z",
+    "dateCreated": "2022-02-13T03:41:44.000Z",
+    "title": "How to flatten an array in javaScript?",
+    "url": "https://blog.gauravtewari.xyz/javascript-baazi-how-to-flatten-an-array-in-javascript",
+    "keyOverride": "",
+    "__v": 0,
+    "image": "/assets/post2.png"
+  }
+]

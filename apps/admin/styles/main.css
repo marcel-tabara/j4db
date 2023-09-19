@@ -1,0 +1,26 @@
+.accordion-list {
+  display: block;
+  width: 30%;
+  float: left;
+}
+.accordion-box {
+  height: 300px;
+  overflow: auto;
+}
+.pointer {
+  cursor: pointer;
+  padding: 10;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  padding: 5px;
+  align-items: flex-end;
+}
+
+.nav-bar {
+  padding: 1rem
+}

@@ -1,0 +1,20 @@
+---
+title: How can I get query parameters from the URL?
+category: typescript-slug
+subcategory: generics-slug
+description: Next.js allows us to create dynamic routes, which are routes that can accept parameters. For example, we can create a route that accepts a userId parameter and renders a user profile page for that user. But, how do we get the userId parameter from the URL?
+date: Tue Sep 05 2023 09:17:08 GMT-0400 (Eastern Daylight Time)
+image: /test-img.png
+tags: 
+slug: how-can-i-get-query-parameters-from-the-url
+author1: test name
+---
+The Problem
+Next.js allows us to create dynamic routes, which are routes that can accept parameters. For example, we can create a route that accepts a userId parameter and renders a user profile page for that user. But, how do we get the userId parameter from the URL?
+
+The Solution
+Client-side
+To obtain the query parameters from the URL, you can use the useRouter hook. The hook is imported from different packages depending on the version of Next.js and whether you use the app directory or the pages directory.
+
+If you’re using the pages directory, or the Next.js version is 12 or earlier, import the hook from 'next/router';
+Otherwise, import the hoook from 'next/navigation';

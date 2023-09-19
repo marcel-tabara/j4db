@@ -1,0 +1,106 @@
+[
+  {
+    "_id": "64f72ba132ca02fe2076bed6",
+    "keyOverride": "",
+    "url": "https://nextjs.org/docs/messages/react-hydration-error",
+    "title": "Text content does not match server-rendered HTML",
+    "image": "/test-img.png",
+    "dateCreated": "2023-09-05T13:21:16.226Z",
+    "datePublished": "2023-09-05T13:21:16.226Z",
+    "dateModified": "2023-09-05T13:22:41.256Z",
+    "authorName": "test name",
+    "description": "While rendering your application, there was a difference between the React tree that was pre-rendered from the server and the React tree that was rendered during the first render in the browser (hydration).\n\nHydration is when React converts the pre-rendered HTML from the server into a fully interactive application by attaching event handlers.",
+    "body": "Text content does not match server-rendered HTML\nWhy This Error Occurred\nWhile rendering your application, there was a difference between the React tree that was pre-rendered from the server and the React tree that was rendered during the first render in the browser (hydration).\n\nHydration is when React converts the pre-rendered HTML from the server into a fully interactive application by attaching event handlers.\n\nCommon Causes\nHydration errors can occur from:\n\nIncorrect nesting of HTML tags\n<p> nested in another <p> tag\n<div> nested in a <p> tag\nInteractive Content cannot be nested (<a> nested in a <a> tag, <button> nested in a <button> tag, etc)\nUsing checks like typeof window !== 'undefined' in your rendering logic\nUsing browser-only APIs like window or localStorage in your rendering logic\nBrowser extensions modifying the HTML\nIncorrectly configured CSS-in-JS libraries\nEnsure your code is following our official examples\nIncorrectly configured Edge/CDN that attempts to modify the html response, such as Cloudflare Auto Minify",
+    "publisherName": "test publisher",
+    "publisherLogo": "test logo",
+    "slug": "text-content-does-not-match-server-rendered-html",
+    "subcategory": {
+      "_id": "64f4a63ab3b3563fc391816d",
+      "slug": "nestjs-slug"
+    },
+    "category": {
+      "_id": "64f61c7532ca02fe2076be08",
+      "slug": "mongodb-cat-2"
+    },
+    "app": "64f3fdc1a9153d0ed5539029",
+    "__v": 0
+  },
+  {
+    "_id": "64f72aa832ca02fe2076bebc",
+    "keyOverride": "",
+    "url": "https://sentry.io/answers/how-can-i-get-query-parameters-from-url/",
+    "title": "How can I get query parameters from the URL?",
+    "image": "/test-img.png",
+    "dateCreated": "2023-09-05T13:17:08.226Z",
+    "datePublished": "2023-09-05T13:17:08.226Z",
+    "dateModified": "2023-09-05T13:18:32.403Z",
+    "authorName": "test name",
+    "description": "Next.js allows us to create dynamic routes, which are routes that can accept parameters. For example, we can create a route that accepts a userId parameter and renders a user profile page for that user. But, how do we get the userId parameter from the URL?",
+    "body": "The Problem\nNext.js allows us to create dynamic routes, which are routes that can accept parameters. For example, we can create a route that accepts a userId parameter and renders a user profile page for that user. But, how do we get the userId parameter from the URL?\n\nThe Solution\nClient-side\nTo obtain the query parameters from the URL, you can use the useRouter hook. The hook is imported from different packages depending on the version of Next.js and whether you use the app directory or the pages directory.\n\nIf you’re using the pages directory, or the Next.js version is 12 or earlier, import the hook from 'next/router';\nOtherwise, import the hoook from 'next/navigation';",
+    "publisherName": "test publisher",
+    "publisherLogo": "test logo",
+    "slug": "how-can-i-get-query-parameters-from-the-url",
+    "subcategory": {
+      "_id": "64f4a624b3b3563fc3918169",
+      "slug": "generics-slug"
+    },
+    "category": {
+      "_id": "64f4a484b3b3563fc3918152",
+      "slug": "typescript-slug"
+    },
+    "app": "64f3fdc1a9153d0ed5539029",
+    "__v": 0
+  },
+  {
+    "_id": "64f61f1a32ca02fe2076be4d",
+    "keyOverride": "",
+    "url": "https://nextjs.org/learn/basics/create-nextjs-app/setup",
+    "title": "Create a Next.js App",
+    "image": "/test-img.png",
+    "dateCreated": "2023-09-04T18:15:35.820Z",
+    "datePublished": "2023-09-04T18:15:35.820Z",
+    "dateModified": "2023-09-04T18:16:58.066Z",
+    "authorName": "test name",
+    "description": "Setup\nFirst, let’s make sure that your development environment is ready.\n\nIf you don’t have Node.js installed, install it from here. You’ll need Node.js version 18 or higher.\nYou’ll be using your own text editor and terminal app for this tutorial.\nIf you are on Windows, we recommend downloading Git for Windows and use Git Bash that comes with it, which supports the UNIX-specific commands in this tutorial. Windows Subsystem for Linux (WSL) is another option.\n\nCreate a Next.js app\nTo create a Next.js app, open your terminal, cd into the directory you’d like to create the app in, and run the following command:",
+    "body": "Setup\nFirst, let’s make sure that your development environment is ready.\n\nIf you don’t have Node.js installed, install it from here. You’ll need Node.js version 18 or higher.\nYou’ll be using your own text editor and terminal app for this tutorial.\nIf you are on Windows, we recommend downloading Git for Windows and use Git Bash that comes with it, which supports the UNIX-specific commands in this tutorial. Windows Subsystem for Linux (WSL) is another option.\n\nCreate a Next.js app\nTo create a Next.js app, open your terminal, cd into the directory you’d like to create the app in, and run the following command:",
+    "publisherName": "test publisher",
+    "publisherLogo": "test logo",
+    "slug": "create-a-nextjs-app",
+    "subcategory": {
+      "_id": "64f4a63ab3b3563fc391816d",
+      "slug": "nestjs-slug"
+    },
+    "category": {
+      "_id": "64f61c7532ca02fe2076be08",
+      "slug": "mongodb-cat-2"
+    },
+    "app": "64f3fdc1a9153d0ed5539029",
+    "__v": 0
+  },
+  {
+    "_id": "64f4e0b1f496b5ba89e5326f",
+    "keyOverride": "",
+    "url": "https://www.npmjs.com/package/easymde",
+    "title": "EasyMDE - Markdown Editor",
+    "image": "/test-img.png",
+    "dateCreated": "2023-09-03T19:37:40.847Z",
+    "datePublished": "2023-09-03T19:37:40.847Z",
+    "dateModified": "2023-09-04T18:18:16.058Z",
+    "authorName": "test name",
+    "description": "A drop-in JavaScript text area replacement for writing beautiful and understandable Markdown. EasyMDE allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts.\n",
+    "body": "A drop-in JavaScript text area replacement for writing beautiful and understandable Markdown. EasyMDE allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts.\n\nIn addition, the syntax is rendered while editing to clearly show the expected result. Headings are larger, emphasized words are italicized, links are underlined, etc.\n\nEasyMDE also features both built-in auto saving and spell checking. The editor is entirely customizable, from theming to toolbar buttons and javascript hooks.",
+    "publisherName": "test publisher",
+    "publisherLogo": "test logo",
+    "slug": "easymde-markdown-editor",
+    "subcategory": {
+      "_id": "64f4a624b3b3563fc3918169",
+      "slug": "generics-slug"
+    },
+    "category": {
+      "_id": "64f4a484b3b3563fc3918152",
+      "slug": "typescript-slug"
+    },
+    "app": "64f3fdc1a9153d0ed5539029",
+    "__v": 0
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "64f72aa832ca02fe2076bebc",
+    "keyOverride": "",
+    "url": "https://sentry.io/answers/how-can-i-get-query-parameters-from-url/",
+    "title": "How can I get query parameters from the URL?",
+    "image": "/test-img.png",
+    "dateCreated": "2023-09-05T13:17:08.226Z",
+    "datePublished": "2023-09-05T13:17:08.226Z",
+    "dateModified": "2023-09-05T13:18:32.403Z",
+    "authorName": "test name",
+    "description": "Next.js allows us to create dynamic routes, which are routes that can accept parameters. For example, we can create a route that accepts a userId parameter and renders a user profile page for that user. But, how do we get the userId parameter from the URL?",
+    "body": "The Problem\nNext.js allows us to create dynamic routes, which are routes that can accept parameters. For example, we can create a route that accepts a userId parameter and renders a user profile page for that user. But, how do we get the userId parameter from the URL?\n\nThe Solution\nClient-side\nTo obtain the query parameters from the URL, you can use the useRouter hook. The hook is imported from different packages depending on the version of Next.js and whether you use the app directory or the pages directory.\n\nIf you’re using the pages directory, or the Next.js version is 12 or earlier, import the hook from 'next/router';\nOtherwise, import the hoook from 'next/navigation';",
+    "publisherName": "test publisher",
+    "publisherLogo": "test logo",
+    "slug": "how-can-i-get-query-parameters-from-the-url",
+    "subcategory": {
+      "_id": "64f4a624b3b3563fc3918169",
+      "slug": "generics-slug"
+    },
+    "category": {
+      "_id": "64f4a484b3b3563fc3918152",
+      "slug": "typescript-slug"
+    },
+    "app": "64f3fdc1a9153d0ed5539029",
+    "__v": 0
+  },
+  {
+    "_id": "64f4e0b1f496b5ba89e5326f",
+    "keyOverride": "",
+    "url": "https://www.npmjs.com/package/easymde",
+    "title": "EasyMDE - Markdown Editor",
+    "image": "/test-img.png",
+    "dateCreated": "2023-09-03T19:37:40.847Z",
+    "datePublished": "2023-09-03T19:37:40.847Z",
+    "dateModified": "2023-09-04T18:18:16.058Z",
+    "authorName": "test name",
+    "description": "A drop-in JavaScript text area replacement for writing beautiful and understandable Markdown. EasyMDE allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts.\n",
+    "body": "A drop-in JavaScript text area replacement for writing beautiful and understandable Markdown. EasyMDE allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts.\n\nIn addition, the syntax is rendered while editing to clearly show the expected result. Headings are larger, emphasized words are italicized, links are underlined, etc.\n\nEasyMDE also features both built-in auto saving and spell checking. The editor is entirely customizable, from theming to toolbar buttons and javascript hooks.",
+    "publisherName": "test publisher",
+    "publisherLogo": "test logo",
+    "slug": "easymde-markdown-editor",
+    "subcategory": {
+      "_id": "64f4a624b3b3563fc3918169",
+      "slug": "generics-slug"
+    },
+    "category": {
+      "_id": "64f4a484b3b3563fc3918152",
+      "slug": "typescript-slug"
+    },
+    "app": "64f3fdc1a9153d0ed5539029",
+    "__v": 0
+  }
+]
