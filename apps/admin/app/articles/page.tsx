@@ -10,7 +10,7 @@ const ArticlesList = () => {
   const sorted = [...(data?.data ?? [])].sort(
     (a: IArticle, b: IArticle) => a.app?.title.localeCompare(b.app.title),
   );
-  console.log('[1;32m ####-#### sorted', sorted);
+
   if (isLoading) {
     return <Loader />;
   }

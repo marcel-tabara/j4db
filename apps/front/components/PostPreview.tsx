@@ -3,11 +3,11 @@ import Grid from '@mui/material/Grid';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Post } from '../lib/types';
-import DateFormatter from './DateFormatter';
+import { DateFormatter } from './DateFormatter';
 
 export default function PostPreview({ post }: { post: Post }) {
   return (
-    <Box sx={{ flexGrow: 1, paddingBottom: 5 }}>
+    <Box sx={{ flexGrow: 1 }}>
       <Link href={`/${post.category}/${post.subcategory}/${post.slug}`}>
         <Grid container spacing={2}>
           <Grid item xs={4}>
@@ -18,6 +18,7 @@ export default function PostPreview({ post }: { post: Post }) {
                 width={100}
                 height={100}
                 style={{ width: '100%' }}
+                className="rounded"
               />
             </div>
           </Grid>
@@ -26,8 +27,10 @@ export default function PostPreview({ post }: { post: Post }) {
               <p className="font-semibold text-xl group-hover:underline">
                 {post.title}
               </p>
-              <DateFormatter dateString={post.date} />
               <p>{post.description}</p>
+              <p>
+                <DateFormatter dateString={post.date} />
+              </p>
             </div>
           </Grid>
         </Grid>

@@ -7,7 +7,6 @@ export default async function SubCategory({
 }: {
   params: { category: string; subcategory: string; slug: string };
 }) {
-  console.log('[1;32m ####-#### SubCategory');
   const { category, subcategory } = params;
   const posts = getPostsByCatSubCat({ category, subcategory });
 

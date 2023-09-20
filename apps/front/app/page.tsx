@@ -1,10 +1,8 @@
-import Link from 'next/link';
 import LatestPost from '../components/LatestPost';
 import PostPreview from '../components/PostPreview';
 import { getData, getPostsByCatSubCat } from '../lib/api';
 
 export default function Home() {
-  console.log('[1;32m ####-#### Home');
   const posts = getPostsByCatSubCat({});
   const data = getData();
 
@@ -26,20 +24,13 @@ export default function Home() {
         <div className="h-16"></div>
 
         <p className="text-3xl mb-6">Recent Posts</p>
-        <div className="grid md:grid-cols-2 grid-cols-1 mx-auto md:gap-32 gap-8">
+        <div className="grid md:grid-cols-1 grid-cols-1 mx-auto md:gap-4 gap-2">
           {posts.map((post) => (
             <div key={post.title}>
               <PostPreview post={post} />
             </div>
           ))}
         </div>
-        <div className="h-16"></div>
-        <Link
-          href="/assets"
-          className="text-3xl hover:text-gray-300 hover:underline"
-        >
-          Read More
-        </Link>
       </main>
     </div>
   );

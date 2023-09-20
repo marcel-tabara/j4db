@@ -101,15 +101,10 @@ export function getPostsByCatSubCatSlug({
 
   const fileContent = fs.readFileSync(fullPath, 'utf8');
   const { content, data } = matter(fileContent);
-  const ttt = matter(fileContent);
-  console.log('[1;32m ####-#### ttt', ttt);
 
   const items = {
     content,
-    data: {
-      title: data.title as string,
-      author: data.author as string,
-    },
+    data,
   };
 
   return items;
