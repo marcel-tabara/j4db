@@ -2,6 +2,9 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model } from 'mongoose';
 import rake from 'rake-js';
+import { ChatGptService } from '../chatgpt/chatgpt.service';
+import { CreateChatgptDto } from '../chatgpt/dto/create-chatgpt.dto';
+import { ChatGptResponse } from '../chatgpt/dto/response-chatgpt.dto';
 import { KeywordDTO } from './dto/keyword.dto';
 import { Keyword } from './interfaces/keyword.interface';
 
@@ -9,7 +12,13 @@ import { Keyword } from './interfaces/keyword.interface';
 export class KeywordService {
   constructor(
     @InjectModel('Keyword') private readonly keywordModel: Model<Keyword>,
+    private readonly chatGptService: ChatGptService,
   ) {}
+
+  generateText = async (prompt: string): Promise<ChatGptResponse> => {
+    const createChatgptDto: CreateChatgptDto = { prompt };
+    return this.chatGptService.generateTextGPT3(createChatgptDto);
+  };
 
   extractKeywords = async ({
     _id,
@@ -58,12 +67,20 @@ export class KeywordService {
       .find(query)
       .populate({
         path: 'article',
-        select: '_id, url',
+        populate: {
+          path: 'app',
+          select: 'title',
+        },
+        //select: 'title, url',
         strictPopulate: false,
       })
       .populate({
         path: 'articleLink',
-        select: '_id, url',
+        populate: {
+          path: 'app',
+          select: 'title',
+        },
+        //select: 'title, url',
         strictPopulate: false,
       })
       .exec();

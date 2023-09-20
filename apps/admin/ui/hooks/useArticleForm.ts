@@ -1,5 +1,6 @@
 import {
   IArticle,
+  useChatGptKeywordExtractionMutation,
   useCreateArticleMutation,
   useGetKeywordsByArticleIdQuery,
   useKeywordExtractionMutation,
@@ -33,6 +34,8 @@ export const useArticleForm = ({
   const [createArticle, { isLoading: creating }] = useCreateArticleMutation();
   const [keywordExtraction, { isLoading: extracting }] =
     useKeywordExtractionMutation();
+  const [chatGptKeywordExtraction, { isLoading: chatGptExtracting }] =
+    useChatGptKeywordExtractionMutation();
 
   const router = useRouter();
 
@@ -73,6 +76,19 @@ export const useArticleForm = ({
     [article._id, article.url, keywordExtraction],
   );
 
+  const chatGptExtractKeywords = useCallback(
+    async (text: string) => {
+      const extracted = await chatGptKeywordExtraction({
+        _id: article._id,
+        url: article.url,
+        text,
+      });
+      console.log('########## extracted', extracted);
+      //setExtractedKeywords(extracted?.data ?? []);
+    },
+    [article._id, article.url, chatGptKeywordExtraction],
+  );
+
   useEffect(() => {
     article?.body && extractKeywords(article?.body);
   }, [article?.body, extractKeywords]);
@@ -96,14 +112,16 @@ export const useArticleForm = ({
         });
     router.push('/articles');
   });
+
   const onBodyChange = useCallback(
     async (e: string) => {
       if (e) {
         setValue('body', e);
         extractKeywords(e);
+        //chatGptExtractKeywords(e);
       }
     },
-    [extractKeywords, setValue],
+    [chatGptExtractKeywords, extractKeywords, setValue],
   );
   const onAddKeyword = useCallback(
     (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
@@ -194,5 +212,6 @@ export const useArticleForm = ({
     creating,
     updating,
     extracting,
+    chatGptExtracting,
   };
 };

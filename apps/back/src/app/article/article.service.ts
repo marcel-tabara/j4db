@@ -309,11 +309,9 @@ export class ArticleService {
       });
 
       const data = articles.reduce((acc, a) => {
-        const keywords = allKeywords
-          .filter((k) => {
-            return k.article._id.toString() === a._id.toString();
-          })
-          .map((e) => e.title);
+        const keywords = allKeywords.filter((k) => {
+          return k.article._id.toString() === a._id.toString();
+        });
 
         if (!acc[a.category.slug]?.[a.subcategory.slug]) {
           acc[a.category.slug] = {

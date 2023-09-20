@@ -37,6 +37,15 @@ export const getBody = async ({
   keywords,
 }: IBaseFileProps): Promise<string> => {
   Logger.log(`ArticleService: GetBody.`);
+  let articleBody = article.body;
+
+  keywords.map((e) => {
+    articleBody = articleBody.replace(
+      e.title,
+      `[${e.title}](${e.articleLink.url})`,
+    );
+  });
+  const tags = keywords.map((e) => e.title) || '';
   return `---
 title: ${article?.title}
 category: ${catSlug}
@@ -44,11 +53,11 @@ subcategory: ${subcatSlug}
 description: ${sanitizeText(article?.description)}
 date: ${article?.dateCreated}
 image: ${article?.image}
-tags: ${keywords}
+tags: ${tags}
 slug: ${article?.slug}
 author1: ${article?.authorName}
 ---
-${article.body}
+${articleBody}
 `;
 };
 

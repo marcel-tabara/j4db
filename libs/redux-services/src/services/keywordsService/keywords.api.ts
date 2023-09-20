@@ -82,6 +82,20 @@ export const keywordsService = createApi({
         body,
       }),
     }),
+    chatGptKeywordExtraction: build.mutation<
+      string,
+      {
+        _id: string;
+        url: string | undefined;
+        text: string | undefined;
+      }
+    >({
+      query: (body) => ({
+        url: `${keywordsUrl}/chatGptExtractKeywords`,
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
@@ -95,4 +109,5 @@ export const {
   useGetKeywordsQuery,
   useInsertManyKeywordsQuery,
   useKeywordExtractionMutation,
+  useChatGptKeywordExtractionMutation,
 } = keywordsService;

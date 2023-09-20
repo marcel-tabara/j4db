@@ -44,7 +44,7 @@ const Keywords = ({ keywords }: IKeywordsProps) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="left">Keywords</TableCell>
+              <TableCell align="left">Keyword</TableCell>
               <TableCell align="left">Article</TableCell>
               <TableCell align="left">External link</TableCell>
               <TableCell align="right">Actions</TableCell>
@@ -61,19 +61,26 @@ const Keywords = ({ keywords }: IKeywordsProps) => {
                 <TableCell align="left">
                   <Link
                     href="/articles/[_id]"
-                    as={`/articles/${keyword.articleLink?._id}`}
+                    as={`/articles/${keyword.article?._id}`}
                   >
-                    {keyword.article._id}
+                    {keyword.article.title}
                   </Link>
+                  <p>{keyword.article._id}</p>
+                  <p>{keyword.article.app.title}</p>
                 </TableCell>
                 <TableCell align="left">
-                  <Link
-                    href="/articles/[_id]"
-                    as={`/articles/${keyword.articleLink?._id}`}
-                  >
-                    {keyword.article._id !== keyword.articleLink?._id &&
-                      keyword.articleLink?._id}
-                  </Link>
+                  {keyword.article._id !== keyword.articleLink?._id && (
+                    <>
+                      <Link
+                        href="/articles/[_id]"
+                        as={`/articles/${keyword.articleLink?._id}`}
+                      >
+                        {keyword.articleLink?.title}
+                      </Link>
+                      <p>{keyword.articleLink?._id}</p>
+                      <p>{keyword.articleLink?.app.title}</p>
+                    </>
+                  )}
                 </TableCell>
                 <TableCell align="right">
                   <IconButton
