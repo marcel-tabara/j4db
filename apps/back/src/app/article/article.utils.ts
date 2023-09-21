@@ -40,10 +40,14 @@ export const getBody = async ({
   let articleBody = article.body;
 
   keywords.map((e) => {
-    articleBody = articleBody.replace(
-      e.title,
-      `[${e.title}](${e.articleLink.url})`,
-    );
+    const cond = e.articleLink.url !== e.article.url;
+
+    if (cond) {
+      articleBody = articleBody.replace(
+        e.title,
+        `[${e.title}](${e.articleLink.url})`,
+      );
+    }
   });
   const tags = keywords.map((e) => e.title) || '';
   return `---
@@ -55,7 +59,7 @@ date: ${article?.dateCreated}
 image: ${article?.image}
 tags: ${tags}
 slug: ${article?.slug}
-author1: ${article?.authorName}
+author: ${article?.authorName}
 ---
 ${articleBody}
 `;

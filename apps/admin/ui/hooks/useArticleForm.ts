@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   IArticle,
+  keywordsService,
   useChatGptKeywordExtractionMutation,
   useCreateArticleMutation,
   useGetKeywordsByArticleIdQuery,
@@ -28,6 +30,7 @@ export const useArticleForm = ({
   handleSubmit,
   setValue,
 }: Props) => {
+  const [useChatGpt, setUseChatGpt] = useState(false);
   const [selectedKeywords, setSelectedKeywords] = useState<IKeyword[]>([]);
   const [extractedKeywords, setExtractedKeywords] = useState<IKeyword[]>([]);
   const [updateArticle, { isLoading: updating }] = useUpdateArticleMutation();
@@ -36,6 +39,7 @@ export const useArticleForm = ({
     useKeywordExtractionMutation();
   const [chatGptKeywordExtraction, { isLoading: chatGptExtracting }] =
     useChatGptKeywordExtractionMutation();
+  const { data: allKeywords } = keywordsService.useGetKeywordsQuery();
 
   const router = useRouter();
 
@@ -118,10 +122,10 @@ export const useArticleForm = ({
       if (e) {
         setValue('body', e);
         extractKeywords(e);
-        //chatGptExtractKeywords(e);
+        useChatGpt && chatGptExtractKeywords(e);
       }
     },
-    [chatGptExtractKeywords, extractKeywords, setValue],
+    [chatGptExtractKeywords, extractKeywords, setValue, useChatGpt],
   );
   const onAddKeyword = useCallback(
     (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
@@ -159,29 +163,31 @@ export const useArticleForm = ({
     ) => {
       const keyws = event.target?.value.split(',');
       const newKeywords = keyws.map((k: string) => {
-        return (
-          (k.length > 0 &&
-            extractedKeywords.find((e: IKeyword) => e.title === k)) || {
+        const getObj = (val: string) => {
+          const existing = allKeywords?.find((e: IKeyword) => e.title === val);
+          return {
             article: {
               _id: article._id || '',
               url: article.url || '',
             },
             articleLink:
               {
-                _id: article._id,
-                url: article.url,
+                _id: existing?.article._id ?? (article._id || ''),
+                url: existing?.article.url ?? (article.url || ''),
               } || '',
             title: k || '',
-          }
-        );
+          };
+        };
+        return getObj(k);
       }) as IKeyword[];
+
       setSelectedKeywords(newKeywords);
       setValue(
         'keywords',
         newKeywords.map((e: IKeyword) => e),
       );
     },
-    [article._id, article.url, extractedKeywords, setValue],
+    [allKeywords, article._id, article.url, setValue],
   );
 
   const onRemoveKeyword = useCallback(
