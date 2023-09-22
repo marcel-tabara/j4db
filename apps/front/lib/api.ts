@@ -66,6 +66,7 @@ export function getPostsByCatSubCat({
       description: string;
       category: { slug: string };
       subcategory: { slug: string };
+      keywords: string;
     }) => {
       return {
         slug: e.slug,
@@ -75,6 +76,7 @@ export function getPostsByCatSubCat({
         description: e.description,
         category: e.category.slug,
         subcategory: e.subcategory.slug,
+        tags: e.keywords,
       };
     },
   );

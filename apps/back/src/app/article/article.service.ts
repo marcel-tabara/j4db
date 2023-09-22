@@ -153,7 +153,7 @@ export class ArticleService {
   };
 
   generateCatSubcatFile = async ({ app, catId, catSlug, subcatSlug }) => {
-    Logger.log(`ArticleService: GeneratCatSubcatFile.`);
+    Logger.log(`ArticleService: GenerateCatSubcatFile.`);
     const { catPath, subCatPath } = await this.getCatSubCatPath({
       app,
       catSlug,
@@ -297,6 +297,35 @@ export class ArticleService {
         article: { $in: articleIds },
       });
 
+      const getArticlesWithKeywords = (art: Article[]) =>
+        art.map((a) => {
+          const keys = allKeywords
+            .filter((k) => k.article._id.toString() === a._id.toString())
+            .map((s) => s.title)
+            .toString();
+
+          return {
+            _id: a._id,
+            keyOverride: a.keyOverride,
+            url: a.url,
+            title: a.title,
+            image: a.image,
+            dateCreated: a.dateCreated,
+            datePublished: a.datePublished,
+            dateModified: a.dateModified,
+            authorName: a.authorName,
+            description: a.description,
+            body: a.body,
+            publisherName: a.publisherName,
+            publisherLogo: a.publisherLogo,
+            slug: a.slug,
+            subcategory: a.subcategory,
+            category: a.category,
+            app: a.app,
+            keywords: keys,
+          };
+        });
+
       const dirPath = path.join(process.cwd(), exportPath, app.slug);
       cleanDir(dirPath);
 
@@ -304,14 +333,15 @@ export class ArticleService {
 
       generateCatSubcatFile({
         folderPath: dirPath,
-        articles: articles,
+        articles: getArticlesWithKeywords(articles),
         type: 'all.json',
       });
 
       const data = articles.reduce((acc, a) => {
-        const keywords = allKeywords.filter((k) => {
-          return k.article._id.toString() === a._id.toString();
-        });
+        const keywords = allKeywords
+          .filter((k) => k.article._id.toString() === a._id.toString())
+          .map((l) => l.title)
+          .toString();
 
         if (!acc[a.category.slug]?.[a.subcategory.slug]) {
           acc[a.category.slug] = {
@@ -319,7 +349,10 @@ export class ArticleService {
             [a.subcategory.slug]: [{ ...a, keywords }],
           };
         } else {
-          acc[a.category.slug][a.subcategory.slug].push({ ...a, keywords });
+          acc[a.category.slug][a.subcategory.slug].push({
+            ...a,
+            keywords,
+          });
         }
 
         return acc;
@@ -333,7 +366,7 @@ export class ArticleService {
 
         generateCatSubcatFile({
           folderPath: catPath,
-          articles: catArticles,
+          articles: getArticlesWithKeywords(catArticles),
           type: 'all.json',
         });
 
@@ -343,7 +376,12 @@ export class ArticleService {
           const subcatPath = path.join(dirPath, cat, subcat);
           generateCatSubcatFile({
             folderPath: subcatPath,
-            articles: subcatArticles.map((e) => e._doc),
+            articles: subcatArticles.map((e) => {
+              return {
+                ...e._doc,
+                keywords: e.keywords,
+              };
+            }),
             type: 'all.json',
           });
 

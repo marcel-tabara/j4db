@@ -1,5 +1,5 @@
 import { Post } from '../lib/types';
-import PostPreview from './PostPreview';
+import { PostCard } from './PostCard';
 
 export default async function PostList({
   params,
@@ -19,7 +19,7 @@ export default async function PostList({
       /> */}
       <main>
         {posts.map((post) => (
-          <PostPreview post={post} key={post.slug} />
+          <PostCard post={post} key={post.slug} />
         ))}
       </main>
     </div>

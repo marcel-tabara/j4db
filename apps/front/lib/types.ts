@@ -15,4 +15,5 @@ export type Post = {
   description: string;
   category: string;
   subcategory: string;
+  tags: string;
 };

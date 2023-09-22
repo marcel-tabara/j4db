@@ -73,6 +73,7 @@ export const cleanDir = async (path, removeAll = false) => {
 };
 
 export const generateCatSubcatFile = async ({ folderPath, articles, type }) => {
+  Logger.log(`ArticleService: generateCatSubcatFile`);
   !fs.existsSync(folderPath) && fs.mkdirSync(folderPath, { recursive: true });
   fs.writeFileSync(
     path.join(folderPath, type),

@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+/*
 html {
   -webkit-text-size-adjust: 100%;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -45,7 +46,7 @@ h2 {
 
 a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: inherit;
 }
 
 pre {
@@ -55,7 +56,6 @@ pre {
 
 svg {
   display: block;
-  vertical-align: middle;
   shape-rendering: auto;
   text-rendering: optimizeLegibility;
 }
@@ -83,7 +83,7 @@ pre {
 .wrapper {
   width: 100%;
 }
-
+ */
 .container {
   margin-left: auto;
   margin-right: auto;

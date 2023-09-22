@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import PostPreview from '../../components/PostPreview';
+import { PostCard } from '../../components/PostCard';
 import { getPostsByCatSubCat } from '../../lib/api';
 
 export default async function Category({
@@ -27,7 +27,7 @@ export default async function Category({
         <div className="grid md:grid-cols-2 grid-cols-1 mx-auto md:gap-32 gap-8">
           {posts.map((post) => (
             <div key={post.title}>
-              <PostPreview post={post} />
+              <PostCard post={post} />
             </div>
           ))}
         </div>
