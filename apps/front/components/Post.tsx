@@ -2,29 +2,21 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Image from 'next/image';
 import markdownStyles from '../app/markdown-styles.module.css';
-import { getPostsByCatSubCatSlug } from '../lib/api';
 import markdownToHtml from '../lib/markdownToHtml';
 import { DateFormatter } from './DateFormatter';
 
-export default async function Post({
-  params,
-}: {
-  params: { category: string; subcategory: string; slug: string };
-}) {
-  const { category, subcategory, slug } = params;
-  const { data, content } = getPostsByCatSubCatSlug({
-    category,
-    subcategory,
-    slug,
-  });
+export interface IData {
+  content: string;
+  data: {
+    [key: string]: string;
+  };
+}
+
+export default async function Post({ data, content }: IData) {
   const contentAsHtml = await markdownToHtml(content);
 
   return (
     <div className="container mx-auto">
-      {/* <DefaultSeo
-        title="Simple Usage Example"
-        description="A short description goes here."
-      /> */}
       <main>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
@@ -40,7 +32,7 @@ export default async function Post({
             <Grid item xs={12}>
               <div>
                 <p className="font-semibold text-xl group-hover:underline">
-                  {data.title}
+                  <h1 className="text-center text-5xl">{data.title}</h1>
                 </p>
                 <div
                   className={markdownStyles['markdown']}
