@@ -84,6 +84,12 @@ pre {
   width: 100%;
 }
  */
+
+.breadcrumbs {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .container {
   margin-left: auto;
   margin-right: auto;

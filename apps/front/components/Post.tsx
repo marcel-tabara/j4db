@@ -1,9 +1,12 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Image from 'next/image';
+import { flags } from '../app/api/flags';
 import markdownStyles from '../app/markdown-styles.module.css';
 import markdownToHtml from '../lib/markdownToHtml';
+import { Crumbs } from './Crumbs';
 import { DateFormatter } from './DateFormatter';
+import { Tags } from './Tags';
 
 export interface IData {
   content: string;
@@ -31,16 +34,23 @@ export default async function Post({ data, content }: IData) {
             </Grid>
             <Grid item xs={12}>
               <div>
-                <p className="font-semibold text-xl group-hover:underline">
-                  <h1 className="text-center text-5xl">{data.title}</h1>
-                </p>
+                <h1 className="text-center text-5xl">{data.title}</h1>
+                {flags.breradcumbs && (
+                  <Crumbs
+                    category={data.category}
+                    subcategory={data.subcategory}
+                  />
+                )}
                 <div
                   className={markdownStyles['markdown']}
                   dangerouslySetInnerHTML={{ __html: contentAsHtml }}
                 />
-                <p>
-                  <DateFormatter dateString={data.date} />
-                </p>
+                {flags.tags && <Tags tags={data.tags} />}
+                {flags.date && (
+                  <p>
+                    <DateFormatter dateString={data.date} />
+                  </p>
+                )}
               </div>
             </Grid>
           </Grid>

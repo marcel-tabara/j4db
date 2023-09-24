@@ -8,10 +8,6 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-5">
-      {/* <DefaultSeo
-        title="Simple Usage Example"
-        description="A short description goes here."
-      /> */}
       <main>
         <div className="space-y-4">
           <h1 className="text-center text-5xl">{data.app.title}</h1>

@@ -17,9 +17,9 @@ export default function RouteWithParams({
   const { params } = allParams;
 
   const postParams = {
-    category: params[0] as string,
-    subcategory: params[1] as string,
-    slug: params[2] as string,
+    category: params[0],
+    subcategory: params[1],
+    slug: params[2],
   };
 
   const { data, content } =
@@ -35,18 +35,30 @@ export default function RouteWithParams({
         })
       : [];
 
+  const {
+    author,
+    category,
+    date,
+    description,
+    image,
+    slug,
+    subcategory,
+    tags,
+    title,
+  } = data;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    title: data.title,
-    category: data.category,
-    subcategory: data.subcategory,
-    description: data.description,
-    date: data.date,
-    image: data.image,
-    tags: data.tags,
-    slug: data.slug,
-    author: data.author,
+    author,
+    category,
+    date,
+    description,
+    image,
+    slug,
+    subcategory,
+    tags,
+    title,
   };
 
   return (
