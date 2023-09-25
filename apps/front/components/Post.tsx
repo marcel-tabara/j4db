@@ -46,11 +46,7 @@ export default async function Post({ data, content }: IData) {
                   dangerouslySetInnerHTML={{ __html: contentAsHtml }}
                 />
                 {flags.tags && <Tags tags={data.tags} />}
-                {flags.date && (
-                  <p>
-                    <DateFormatter dateString={data.date} />
-                  </p>
-                )}
+                {flags.date && <DateFormatter dateString={data.date} />}
               </div>
             </Grid>
           </Grid>

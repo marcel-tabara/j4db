@@ -41,11 +41,7 @@ export const PostCard = ({ post }: { post: Post }) => {
                     {post.title}
                   </Typography>
                 </Link>
-                {flags.date && (
-                  <p>
-                    <DateFormatter dateString={post.date} />
-                  </p>
-                )}
+                {flags.date && <DateFormatter dateString={post.date} />}
                 {flags.breradcumbs && (
                   <Crumbs
                     category={post.category}

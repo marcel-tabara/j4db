@@ -44,11 +44,7 @@ export default function LatesPost() {
           >
             <p>{latestPost?.description}</p>
           </Link>
-          {flags.date && (
-            <p>
-              <DateFormatter dateString={latestPost?.date} />
-            </p>
-          )}
+          {flags.date && <DateFormatter dateString={latestPost?.date} />}
         </div>
       </div>
     </div>
